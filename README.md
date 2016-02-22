@@ -1,13 +1,13 @@
 # Table of Content
-1. [Prologue](#Prologue)
-2. [Solution Space](#Solution-Space)
-  1. [Linear Regulators](#Linear-Regulators)
-  2. [Switching Mode Power Supplies (SMPS)](#Switching-Mode-Power-Supplies-SMPS)
-    1. [Micro-power SMPS](#Micro-power-SMPS)
-3. [Current Design](#Current-Design)
-  1. [Version History](#Version-History)
-  2. [Layout Software Used](#Layout-Software-Used)
-4. [License](#License)
+1. [Prologue](#prologue)
+2. [Solution Space](#solution-space)
+  1. [Linear Regulators](#linear-regulators)
+  2. [Switching Mode Power Supplies (SMPS)](#switching-mode-power-supplies-smps)
+    1. [Micro-power SMPS](#micro-power-smps)
+3. [Current Design](#current-design)
+  1. [Version History](#version-history)
+  2. [Layout Software Used](#layout-software-used)
+4. [License](#license)
 
 ---
 
