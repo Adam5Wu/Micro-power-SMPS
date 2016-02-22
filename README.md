@@ -63,7 +63,9 @@ My design aims to reduce or eliminate the I<sub>q</sub> [performance gap](#micro
 
 ![Version 3](TPS630252xHERev3.PNG)
 
-TPS630252 has a shutdown mode, with current draw of only 0.1uA; the power supervisory chip, MC33464, has a constant current draw of around 1~2uA; supporting circuit adds about 1~2uA of additional current draw. Overall, the circuit should consume about 3~5uA at ultra-light load.
+TPS630252 has a shutdown mode, with current draw of only 0.1uA; the power supervisory chip, MC33464, has a constant current draw of around 1~2uA; supporting circuit adds about 1~2uA of additional current draw. Overall, the entire circuit should only consume about 2~4uA at ultra-light load.
+
+With comparable I<sub>q</sub> with linear regulators, much higher conversion efficiency (>90%), and ability to work when V<sub>In</sub> < V<sub>Out</sub>, I fully expect my design to outperform any LDO solution for battery powering low power MCUs in terms of battery logevity.
 
 ## Version History
 V1 has a design flaw, which was discovered soon after drawing.
