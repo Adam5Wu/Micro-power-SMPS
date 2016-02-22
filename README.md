@@ -20,13 +20,15 @@ But I don't want to run 100 more wires in my house. I have to rely on batteries.
 
 Batteries have physical dimentions, have weights, have capacity limits. And the good ones are expensive.
 
-At the moment (2015~2016), LiPo 18650 seems to have the best combination of power density (capacity/volume) and price.
+At the moment of writing (2015~2016), LiPo 18650 seems to have the best combination of power density (capacity/volume) and price.
 But, their voltage is too high at full charge (4.2v), but drop too low (2.7v) before they completely discharge. 
 
-So I need regulators. Regulators have power consumptions, and many are quite heavy energy consumers themselves.
+So I need regulators.
+
+Regulators have power consumptions, and many are quite heavy energy consumers themselves.
 Suppose 3400mAh @ 3.3v of energy could last an ESP 6 month, add a switching regulator with I<sub>q</sub> (idle current use) of 2mA (actually not a very bad number, most ones you get from eBay or Amazon uses more than that), now that energy would be gone in a little over a month.
 
-I can't imagine climbing ladders every week to change batteries everywhere in my house. That is crazy.
+I can't imagine climbing ladders every week to change batteries somewhere in my house. That is crazy.
 
 I need efficient power supplies, very efficient.
 
