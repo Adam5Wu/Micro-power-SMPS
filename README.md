@@ -54,7 +54,7 @@ Macro-power SMPS have quite high I<sub>q</sub>, usually single or double digit m
 ### Micro-power SMPS
 Micro-power SMPS are more dedicate versions of SMPS, which are designed to handle very small loads. Because the targeted load is small, auxiliary costs are also well-controlled. For example, TPS630252 is a 3.3v fixed voltage micro-power SMPS, with I<sub>q</sub> of 35~82uA, hundreds of times lower than some macro-power SMPS.
 
-However, there is still a performance gap compared with 2uA I<sub>q</sub> of MCP1700. And this gap may become significant at extremely low load, such as 3.2uA deep sleep current of esp8266 (fully assembled modules use more power, around 100uA).
+However, there is still a performance gap compared with 2uA I<sub>q</sub> of MCP1700. And this gap may become significant at extremely low load, such as 3.2uA deep sleep current of esp8266. Fully assembled modules use more power during deep sleep, around 100uA. But still, there is a difference between 50% more (TPS630252) vs. negligible (MCP1700) extra power consumption.
 
 ---
 
