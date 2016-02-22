@@ -34,9 +34,9 @@ I need efficient power supplies, very efficient.
 
 # Solution Space
 ## Linear Regulators
-A simple and more efficient solution than lousy switching regulators is the low I<sub>q</sub>, low drop-out (LDO) linear voltage regulator.
+A simple and more efficient solution than lousy switching regulators is using a low I<sub>q</sub> low drop-out (LDO) linear voltage regulator.
 
-A linear regulator functions like an adaptive variable resistor -- their internal resistance are automatically adjusted according to load, so that the voltage drop on the load is always a constant V<sub>Load</sub>, as long as the input voltage is higher than V<sub>Load</sub> + V<sub>Drop</sub>. Due to the nature of how they work, linear regulators require very few components, and modern ones can achieve very low V<sub>Drop</sub> and I<sub>q</sub>. For example, MPC1700 has V<sub>Drop</sub>=0.2v and I<sub>q</sub>=2uA.
+A linear regulator functions like an adaptive variable resistor -- their internal resistance are automatically adjusted according to load, so that the voltage drop on the load is always a constant V<sub>Load</sub>, as long as the input voltage is higher than V<sub>Load</sub> + V<sub>Drop</sub>. Due to the nature of how they work, linear regulators require very few components, and modern ones can achieve very low V<sub>Drop</sub> and I<sub>q</sub>. For example, MCP1700 has V<sub>Drop</sub>=0.2v and I<sub>q</sub>=2uA.
 
 But linear regulators have two weak spots, low conversion efficiency and V<sub>In</sub> > V<sub>Out</sub>.
 
