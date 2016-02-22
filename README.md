@@ -56,3 +56,6 @@ V3 is currently pending validation. Prototype PCB has been ordered, eta. Mid-Mar
 # License
 The circuit design and PCB layout is released under GPL license.
 Proprietary licensed release is available upon request.
+
+# Layout Software Used
+PCBWeb http://www.pcbweb.com/
