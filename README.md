@@ -14,7 +14,7 @@
 # Prologue
 It all started when I first met ESP8266, a tiny Wifi SoC with amazing versatility and potentials.
 
-I want to put it everywhere in my house, gathering temperature, humidity, presence of human (PIR), positiong of windows and doors, ...
+I want to put it everywhere in my house, gathering info about temperature, humidity, presence of human (PIR), position of windows and doors, ...
 
 But I don't want to run 100 more wires in my house. I have to rely on batteries.
 
