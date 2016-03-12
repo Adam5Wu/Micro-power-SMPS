@@ -65,7 +65,7 @@ My design aims to reduce or eliminate the I<sub>q</sub> [performance gap](#micro
 
 ![Version 3](TPS630252xHERev3.PNG)
 
-![PCB Top](TPS630252xHERev3_PCB1.PNG) ![PCB Bottom](TPS630252xHERev3_PCB2.PNG)
+![PCB Top](TPS630252xHERev3a_PCB1.PNG) ![PCB Bottom](TPS630252xHERev3a_PCB2.PNG)
 
 TPS630252 has a shutdown mode, with current draw of only 0.1uA; the power supervisory chip, MC33464, has a constant current draw of around 1~2uA; supporting circuit adds about 1~2uA of additional current draw. Overall, the entire circuit should only consume about 2~4uA at ultra-light load.
 
@@ -78,7 +78,8 @@ When Vin is higher than Vout, Vgs will be negative regardless of the !RST signal
 V2 is also flawed, due to the failure to consider shutdown discharge circuit.
 It was discovered on prototype PCB, a patch was made using diode, which confirmed the expected operation with the flaw corrected.
 
-V3 is currently pending validation. Prototype PCB has been ordered, eta. Mid-March 2016.
+V3 had a bad layout bug, the first batch of PCB not usable.
+V3a (same circuit, new layout) is currently pending validation. Prototype PCB has been ordered, eta. End-March 2016.
 
 ## Layout Software Used
 PCBWeb http://www.pcbweb.com/
