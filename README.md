@@ -89,7 +89,7 @@ With comparable I<sub>q</sub> with linear regulators, much higher conversion eff
 * V3a (same circuit, new layout) has been assembled and tested, two problems identified:
 
   1. The circuit had to be "kick-started", My guess is that this is a result of three factors:
-    1. Reducing the directly attached output capacitor (to reduce energy wastage) causes low efficiency of the boost circuit at start-up -- i.e. the output voltages raises much slower
+    1. Reducing the directly attached output capacitor (to reduce energy wastage entering shutdown mode) causes low efficiency of the boost circuit at start-up -- i.e. the output voltages raises much slower
     2. MC33464 kind of tie !RST pin with Vin before turn-on (below 0.5v)
     3. TPCP8406's N-channel has very "good" response at low gate voltage
 
