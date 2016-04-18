@@ -72,14 +72,36 @@ TPS630252 has a shutdown mode, with current draw of only 0.1uA; the power superv
 With comparable I<sub>q</sub> with linear regulators, much higher conversion efficiency (>90%), and ability to work when V<sub>In</sub> < V<sub>Out</sub>, I fully expect my design to outperform any LDO solution for battery powering low power MCUs in terms of battery longevity.
 
 ## Version History
-V1 has a design flaw, which was discovered soon after drawing.
-When Vin is higher than Vout, Vgs will be negative regardless of the !RST signal, thus renders the shutdown control ineffective.
+* V1 has a design flaw, which was discovered soon after drawing.
 
-V2 is also flawed, due to the failure to consider shutdown discharge circuit.
-It was discovered on prototype PCB, a patch was made using diode, which confirmed the expected operation with the flaw corrected.
+  When Vin is higher than Vout, Vgs will be negative regardless of the !RST signal, thus renders the shutdown control ineffective.
 
-V3 had a bad layout bug, the first batch of PCB not usable.
-V3a (same circuit, new layout) is currently pending validation. Prototype PCB has been ordered, eta. End-March 2016.
+* V2 is also flawed, due to the failure to consider shutdown discharge circuit.
+
+  It was discovered on prototype PCB, a patch was made using diode, which confirmed the expected operation with the flaw corrected.
+
+* V3 had a bad layout bug, the first batch of PCB not usable.
+
+* V3a (same circuit, new layout) assembled and tested, two problems identified:
+
+  1. The circuit had to be "kick-started", My guess is that this is a result of three factors:
+    1. Reducing the directly attached output capacitor (to reduce energy wastage) causes low efficiency of the boost circuit at start-up -- i.e. the output voltages raises much slower
+    2. MC33464 kind of tie !RST pin with Vin before turn-on (below 0.5v)
+    3. TPCP8406's N-channel has very "good" response at low gate voltage
+
+    These three factors combined causes the shutdown signal to be asserted prematurely (i.e. when output reaches ~0.5v, instead of 3.3v)
+  2. The output current ripple is way too large at moderate load (~2mA).
+
+    This is due to the design flaw which uses RC circuit as means to enlarge voltage monitor hysteresis -- the RC circuit delays for both asserting the shutdown, as well as de-asserting the shutdown.
+  
+    A quick patch with diode across the timing resistor has been tested. The patch improves the shutdown de-assert latency, however the ripple is still fairly large.
+
+* V4 circuit is currently being designed.
+
+  The planned improvement is to leverage low power OpAmps to factor output load into consideration.
+  
+  * The power saving from the supervisory circuit is only enabled when the output load is light, e.g. <1mA;
+  * When the output load is high enough, simply bypass the supervisory circuit to eliminate chances of large voltage ripple.
 
 ## Layout Software Used
 PCBWeb http://www.pcbweb.com/
