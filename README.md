@@ -88,18 +88,25 @@ With comparable I<sub>q</sub> with linear regulators, much higher conversion eff
 
 * V3a (same circuit, new layout) has been assembled and tested, two problems identified:
 
-  1. The circuit had to be "kick-started", My guess is that this is a result of three factors:
-    1. Reducing the directly attached output capacitor (to reduce energy wastage entering shutdown mode) causes low efficiency of the boost circuit at start-up -- i.e. the output voltages raises much slower
-    2. MC33464 kind of tie !RST pin with Vin before turn-on (below 0.5v)
-    3. TPCP8406's N-channel has very "good" response at low gate voltage
-
-    These three factors combined causes the shutdown signal to be asserted prematurely (i.e. when output reaches ~0.5v, instead of 3.3v)
+  1. The circuit had to be "kick-started"
+  
+      My guess is that this is a result of three factors, combined causes the shutdown signal to be asserted prematurely (i.e. when output reaches ~0.5v, instead of 3.3v):
+     1. Reducing the directly attached output capacitor (to reduce energy wastage entering shutdown mode) causes low efficiency of the boost circuit at start-up -- i.e. the output voltages raises much slower
+     2. MC33464 kind of tie !RST pin with Vin before turn-on (below 0.5v)
+     3. TPCP8406's N-channel has very "good" response at low gate voltage
+     
   2. The output current ripple is way too large at moderate load (~2mA).
 
-    This is due to the design flaw which uses RC circuit as means to enlarge voltage monitor hysteresis -- the RC circuit delays for both asserting the shutdown, as well as de-asserting the shutdown.
+      This is due to the design flaw which uses RC circuit as means to enlarge voltage monitor hysteresis -- the RC circuit delays for both asserting the shutdown, as well as de-asserting the shutdown.
+      
+      A quick patch with diode across the timing resistor has been tested. The patch improves the shutdown de-assert latency, however the ripple is still fairly large.
+      
+      **Update: the circuit however is fairly usable for project that are not sensitive to voltage ripples.**
   
-    A quick patch with diode across the timing resistor has been tested. The patch improves the shutdown de-assert latency, however the ripple is still fairly large.
-
+      I put my prototype in use in a PIR motion sensing nightlight, and observed surprisingly good results:
+     - Previously, with a bare TPS630252, the battery lasts a little over 3 months
+     - I changed battery around Chritmas and switched to this prototype, now it is May 11, and the light still goes on whenever I walk on my stairs! :)
+  
 * V4 circuit is currently being designed.
 
   The planned improvement is to leverage low power OpAmps to factor output load into consideration.
