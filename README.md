@@ -51,7 +51,7 @@ SMPS is very different from linear regulators. They function by turning on and o
 
 Mechanism wise, SMPS is much more efficient than linear regulation, because excess energy is never discarded like in linear regulation. However, real world is never as simple. Switching on/off the gate has costs, the gate is also not completely water-tight, and there is also the cost of running the pump at the gate... all these auxiliary costs consumes the water in the dam, or the I<sub>q</sub> of the SMPS.
 
-Macro-power SMPS have quite high I<sub>q</sub>, usually single or double digit mA. They are designed to handle high load current efficiently, e.g. 3~10A. When using those for micro-power applications, e.g. <1mA average current, they a grossly inefficient. Imagine a river dam with auxiliary cost about 1 ton of water each day, nobody cares about the cost when a ton of water flows in every second; but when you give the dam operator a bottle water and say: "here, regulate this." guess what look will on his/her face...
+Macro-power SMPS have quite high I<sub>q</sub>, usually single or double digit mA. They are designed to handle high load current efficiently, e.g. 3~10A. When using those for micro-power applications, e.g. <1mA average current, they are grossly inefficient. Imagine a river dam with auxiliary cost about 1 ton of water each day, nobody cares about the cost when a ton of water flows in every second; but when you give the dam operator a bottle water and say: "here, regulate this." guess what look will on his/her face...
 
 ### Micro-power SMPS
 Micro-power SMPS are more dedicate versions of SMPS, which are designed to handle very small loads. Because the targeted load is small, auxiliary costs are also well-controlled. For example, TPS630252 is a 3.3v fixed voltage micro-power SMPS, with I<sub>q</sub> of 35~82uA, hundreds of times lower than some macro-power SMPS.
@@ -106,7 +106,7 @@ The planned improvement is to leverage low power OpAmps to factor output load in
 
   1. The circuit had to be "kick-started"
   
-      My guess is that this is a result of three factors, combined causes the shutdown signal to be asserted prematurely (i.e. when output reaches ~0.5v, instead of 3.3v):
+      My guess is that this is a result of three factors, when combined causeing the shutdown signal to be asserted prematurely (i.e. when output reaches ~0.5v, instead of 3.3v):
      1. Reducing the directly attached output capacitor (to reduce energy wastage entering shutdown mode) causes low efficiency of the boost circuit at start-up -- i.e. the output voltages raises much slower
      2. MC33464 kind of tie !RST pin with Vin before turn-on (below 0.5v)
      3. TPCP8406's N-channel has very "good" response at low gate voltage
@@ -115,7 +115,7 @@ The planned improvement is to leverage low power OpAmps to factor output load in
 
       This is due to the design flaw which uses RC circuit as means to enlarge voltage monitor hysteresis -- the RC circuit delays for both asserting the shutdown, as well as de-asserting the shutdown.
       
-      A quick patch with diode across the timing resistor has been tested. The patch improves the shutdown de-assert latency, however the ripple is still fairly large.
+  A quick patch with diode across the timing resistor has been tested. The patch improves the shutdown de-assert latency, however the ripple is still fairly large.
       
 * V4 circuit is currently being designed.
 
