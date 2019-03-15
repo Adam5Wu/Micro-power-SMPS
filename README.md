@@ -85,6 +85,11 @@ I put this prototype in use in a PIR motion sensing nightlight, and observed sur
 - Previously, with a bare TPS630252, the battery lasts a little over 3 months
 - The new circuit has been running for over 6 months now, and there is still plenty of juice left in the battery! :)
 
+Year 2~3 update:
+- Went through a couple of battery replacement cycles, this circuit can support 8~9 months of usage on a single battery.
+- The majority of savings indeed comes from the nearly complete shutdown at very low power consumption.
+    - For example, during the day time, when the total current draw is ~50uA, the regulator only turns on for several milliseconds every 10 seconds.
+
 ## Version 4
 The planned improvement is to leverage low power OpAmps to factor output load into consideration.
 
@@ -127,4 +132,3 @@ PCBWeb http://www.pcbweb.com/
 # License
 The circuit design and PCB layout is released under GPL license.
 Proprietary licensed release is available upon request.
-
